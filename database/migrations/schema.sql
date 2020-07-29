@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2020 at 09:48 PM
+-- Generation Time: Jul 29, 2020 at 03:10 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -24,36 +24,14 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cry_fps_list`
+-- Table structure for table `cry_addresses`
 --
 
-CREATE TABLE `cry_fps_list` (
-  `address_id` int(10) UNSIGNED NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `attachments` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`attachments`)),
-  `client_ip` varchar(45) CHARACTER SET ascii NOT NULL,
-  `client_agent` varchar(2047) CHARACTER SET ascii NOT NULL,
-  `pending` tinyint(1) NOT NULL DEFAULT 1,
-  `state` tinyint(1) DEFAULT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cry_list`
---
-
-CREATE TABLE `cry_list` (
+CREATE TABLE `cry_addresses` (
   `id` int(10) UNSIGNED NOT NULL,
-  `report_id` int(10) UNSIGNED NOT NULL,
-  `address_id` int(10) UNSIGNED DEFAULT NULL,
   `type_id` tinyint(3) UNSIGNED NOT NULL DEFAULT 1,
   `address` varchar(2047) CHARACTER SET ascii NOT NULL,
-  `state` tinyint(1) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT NULL
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -64,15 +42,23 @@ CREATE TABLE `cry_list` (
 
 CREATE TABLE `cry_reports` (
   `id` int(10) UNSIGNED NOT NULL,
-  `addresses` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`addresses`)),
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `attachments` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`attachments`)),
   `client_ip` varchar(45) CHARACTER SET ascii NOT NULL,
   `client_agent` varchar(2047) CHARACTER SET ascii NOT NULL,
-  `pending` tinyint(1) NOT NULL DEFAULT 1,
-  `state` tinyint(1) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cry_report_address`
+--
+
+CREATE TABLE `cry_report_address` (
+  `report_id` int(10) UNSIGNED NOT NULL,
+  `address_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -80,21 +66,11 @@ CREATE TABLE `cry_reports` (
 --
 
 --
--- Indexes for table `cry_fps_list`
+-- Indexes for table `cry_addresses`
 --
-ALTER TABLE `cry_fps_list`
-  ADD KEY `address_id` (`address_id`);
-ALTER TABLE `cry_fps_list` ADD FULLTEXT KEY `client_ip` (`client_ip`);
-ALTER TABLE `cry_fps_list` ADD FULLTEXT KEY `client_agent` (`client_agent`);
-
---
--- Indexes for table `cry_list`
---
-ALTER TABLE `cry_list`
+ALTER TABLE `cry_addresses`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `address` (`address`),
-  ADD KEY `report_id` (`report_id`),
-  ADD KEY `address_id` (`address_id`);
+  ADD UNIQUE KEY `address` (`address`);
 
 --
 -- Indexes for table `cry_reports`
@@ -105,13 +81,20 @@ ALTER TABLE `cry_reports` ADD FULLTEXT KEY `client_ip` (`client_ip`);
 ALTER TABLE `cry_reports` ADD FULLTEXT KEY `client_agent` (`client_agent`);
 
 --
+-- Indexes for table `cry_report_address`
+--
+ALTER TABLE `cry_report_address`
+  ADD KEY `address_id` (`address_id`),
+  ADD KEY `report_id` (`report_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `cry_list`
+-- AUTO_INCREMENT for table `cry_addresses`
 --
-ALTER TABLE `cry_list`
+ALTER TABLE `cry_addresses`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
