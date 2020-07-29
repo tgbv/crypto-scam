@@ -45,7 +45,7 @@ The third state hasn't been implemented in current application version yet for p
 "We" refers to the contributors of this project (including me).
 "You" refers to you, as consumer/user of this service.
 
-I and future contributors of this project don't want/intent to disclose the privacy of anyone using our service.
+I and future contributors of this project don't want/intent to disclose the privacy of anyone using this service.
 Using our service provides you agree with below two subheaders:
 
 - **When using the GUI site (https://crypto-scam.io and its subpaths)**
