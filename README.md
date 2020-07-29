@@ -20,7 +20,7 @@ Let's assume three fictionary men: John Doe, Foo Bar, Baz Bar
 
 Via API anyone can query the database for any address and I encourage all crypto wallets to do so before executing any order. API base URL is: https://api.crypto-scam.io. The return is always a JSON.
 
-1. To query for an address call the API like this:  
+1. To lookup an address call the API like this:  
 `GET https://api.crypto-scam.io/a/crypto_address_here/parmeters,separated,by,commas,here`
 
 A response can have three states: **scam**, **unknown**, **safe**. First when it's a known fraud, second when address hasn't been reported yet, and third when it's legit.
