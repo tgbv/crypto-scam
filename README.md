@@ -20,20 +20,20 @@ Let's assume three fictionary men: John Doe, Foo Bar, Baz Bar
 
 Via API anyone can query the database for any address and I encourage all crypto wallets to do so before executing any order. API base URL is: https://api.crypto-scam.io. The return is always a JSON.
 
-1. To query for an address call the API like this:
-GET https://api.crypto-scam.io/a/crypto_address_here/parmeters,separated,by,commas,here
+1. To query for an address call the API like this:  
+`GET https://api.crypto-scam.io/a/crypto_address_here/parmeters,separated,by,commas,here`
 
 A response can have three states: **scam**, **unknown**, **safe**. First when it's a known fraud, second when address hasn't been reported yet, and third when it's legit.
 The third state hasn't been implemented in current application version yet for privacy reasons, but is planned for future.
 
-2. You can also query the reports for an address. Add this magic parameter to your request:
-GET https://api.crypto-scam.io/a/crypto_address_here/rep
+2. You can also query the reports for an address. Add this magic parameter to your request:  
+`GET https://api.crypto-scam.io/a/crypto_address_here/rep`
 
-3. App currently supports 13 crypto address types. A list with them can be found at the bottom of this file. If you're unsure about an address type you can use a parameter to find it out:
-GET https://api.crypto-scam.io/a/crypto_address_here/type
+3. App currently supports 13 crypto address types. A list with them can be found at the bottom of this file. If you're unsure about an address type you can use a parameter to find it out:  
+`GET https://api.crypto-scam.io/a/crypto_address_here/type`
 
-4. A list with all supported crypto address types can be retrieved via following request
-GET https://api.crypto-scam.io/a-types
+4. A list with all supported crypto address types can be retrieved via following request:  
+`GET https://api.crypto-scam.io/a-types`
 
 ## GUI reference
 
