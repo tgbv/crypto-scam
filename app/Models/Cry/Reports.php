@@ -31,17 +31,6 @@ class Reports extends Model
 	#
 	public function getAddresses()
 	{
-		// Why hasManyThrough requires an intermediary model? :(
-		//
-		// return $this->hasManyThrough(
-		// 	\App\Modules\Cry\AddressesList::class,
-		// 	'cry_report_address',
-		// 	'report_id',
-		// 	'id',
-		// 	'id',
-		// 	'address_id',
-		// );
-
 		return $this->belongsToMany(
 			\App\Models\Cry\Reports::class,
 			'cry_report_address',

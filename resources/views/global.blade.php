@@ -101,7 +101,7 @@
 		<div class="footer-copyright purple darken-3">
 			<div class="container">
 				© 2020 Crypto Scam contributors
-				<a class="grey-text text-lighten-4 right">MIT</a>
+				<a class="grey-text text-lighten-4 right" href="https://github.com/tgbv/crypto-scam/blob/beta/license.txt" target="_blank">MIT</a>
 			</div>
 		</div>
 

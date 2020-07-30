@@ -16,20 +16,19 @@ class AddressesList extends Model
 	protected $connection = 'mysql';
 
 	# no
-	const UPDATED_AT = false;
+	const UPDATED_AT = null;
 
 	# table
 	protected $table = 'cry_addresses';
 
 	# fillable
 	protected $fillable = [
-		'type_id', 'address', 'state'
+		'type_id', 'address',
 	];
 
 	# casts
 	protected $casts = [
 		'type_id' => 'integer',
-		'state' => 'boolean',
 	];
 
 	#
