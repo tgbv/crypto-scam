@@ -26,6 +26,7 @@ class GetCryptos extends Controller
 	    	]);
 	    else
 	    	return response()->json([
+                'status' => 'unknown',
 	    		'message' => 'Address not reported yet.',
 	    	], 404);
     }
@@ -40,8 +41,8 @@ class GetCryptos extends Controller
 
     	# holds the returned array
     	$ret = [
-    		# we already know it's a scam
-    		'scam' => true,
+            # we already know it's a scam
+    		'status' => 'scam',
     	];
 
         # get type if requested
