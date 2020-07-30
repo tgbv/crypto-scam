@@ -42,7 +42,7 @@
 	      		required=""
 	      		autofocus=""
 	      		name="address"
-	      		value="{{ request()->post('address') ?? null }}">
+	      		value="{{ old('address') }}">
 	      <label for="address">Input crypto address here. It can be BTC, ETH, XRM, etc...</label>
 	    </div>	
 
@@ -52,7 +52,7 @@
 	    			class="materialize-textarea"
 	    			name="description"
 	    			data-length="1023"
-	    			required="" >{{ request()->post('description') ?? null }}</textarea>
+	    			required="" >{{ old('description') }}</textarea>
 
 	      <label for="description">A brief description about why this address is fraudulent.</label>
 	    </div>	
