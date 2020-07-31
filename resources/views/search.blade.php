@@ -72,6 +72,25 @@
 		max-width: 100% !important;
 		height: auto;
 	}
+
+	div.hide-on-med-and-up table {
+		margin-bottom: 0.5rem;
+		/*table-layout: fixed;*/
+		width: 100%;
+	}
+
+	div.hide-on-med-and-up td[linebreak] {
+		line-break: anywhere;
+	}
+
+	div.hide-on-med-and-up td ol {
+		margin-left: -1.6rem;
+		margin-top: 0;
+	}
+
+	div.hide-on-med-and-up tr td {
+		padding: 9px 5px;
+	}
 </style>
 @endsection
 @section('main')
@@ -83,7 +102,7 @@
 		<h3 class="hide-on-small-only" main-header>Query data:</h3>
 		<h4 class="hide-on-med-and-up" main-header>Query data:</h4>
 
-		<table main class="striped">
+		<table main class="striped hide-on-small-only">
 			<tbody>
 				<tr>
 					<td>Address</td>
@@ -172,6 +191,92 @@
 			@endif
 		</table>
 
+		<div class="hide-on-med-and-up">
+			<table>
+				<tr>
+					<th>Address</th>
+				</tr>
+				<tr>
+					<td><code>{{ request()->post('address') ?? request()->route('address') }}</code></td>
+				</tr>
+			</table>
+
+			@if($DATA)
+				<table>
+					<tr>
+						<th>Status</th>
+					</tr>
+					<tr>
+						<td>
+							<b class="red-text">SCAM</b>
+							<span class="red-text"><i>(view below reports)</i></span>
+						</td>
+					</tr>
+				</table>
+
+				<table>
+					<tr>
+						<th colspan="3">Reports</th>
+					</tr>
+					<tr>
+						<th style="width: 65px !important"><i>Time</i></th>
+						<th style="width: 150px "><i>Description</i></th>
+						<th><i>Proofs</i></th>
+					</tr>
+
+					@foreach($DATA->getReports as $key=> $Report)
+					<tr>
+						<td baseline>
+							{{ $Report->created_at->diffForHumans(null, null, true) }}
+						</td>
+						<td baseline linebreak><code>{{ $Report->description ?? 'N/A'}}</code></td>
+						<td baseline>
+							@if($Report->attachments)
+							<ol>
+								@foreach($Report->attachments as $att)
+								<li>
+									<span span-within-li>
+										<i class="material-icons tooltipped"
+											data-tooltip="View proof"
+											onclick="openProof('{{$att}}')">panorama</i>
+										<a href="{{ route('proof-download', [$att]) }}"
+											target="_blank">
+											<i class="material-icons tooltipped"
+												data-position="top"
+												data-tooltip="Download proof">file_download</i>										
+										</a>
+									</span>
+								</li>
+								@endforeach
+							</ol>
+							@else
+							<code>N/A</code>
+							@endif
+						</td>
+
+					</tr>
+					@endforeach
+				</table>
+			
+			@else
+				<table>
+					<tr>
+						<th>Status</th>
+					</tr>
+					<tr>
+						<td>
+							<b class="brown-text">Unknown.</b>
+							<span class="brown-text">Address has not been reported. 
+								This however does not mean it isn't fraudulent.
+								Please consult a group with experienced people, such as 
+								<a href="https://reddit.com/r/scams" target="_blank">r/scams</a>.
+							</span>						
+						</td>
+					</tr>
+				</table>
+			@endif
+
+		</div>
 	@endif
 
   <div id="view-proof" class="modal modal-fixed-footer">

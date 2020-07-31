@@ -41,6 +41,7 @@ class ReportAddress extends Controller
     		'description' => 'bail|required|max:1023',
     		'proofs' => 'array|max:3',
     		'proofs.*' => 'image|max:4096',
+            recaptchaFieldName() => recaptchaRuleName(),
     	]);
     }
 

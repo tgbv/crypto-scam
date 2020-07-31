@@ -29,6 +29,7 @@
 	i.prefix-second {
 		right: 0 !important;
 		cursor: pointer;
+		z-index: 100;
 	}
 
 	i.prefix-second input[type="file"] {
@@ -51,6 +52,7 @@
 		color: grey;
 	}
 </style>
+{!! htmlScriptTagJsApi() !!}
 @endsection
 @section('main')
 	<h3 class="hide-on-small-only" main-header>Report an address:</h3>
@@ -65,8 +67,13 @@
 				<input type="file" 
 						id="image_scan"
 						onchange="(async ()=>{
-							document.getElementById('address').value = await scanQrCode(this)
-							M.updateTextFields();
+							let tmp
+
+							if((tmp = await scanQrCode(this)) && tmp !== undefined)
+							{
+								document.getElementById('address').value = tmp
+								M.updateTextFields();								
+							}
 						})()">
 				<label for="image_scan">
 					<i class="material-icons  tooltipped" 
@@ -112,9 +119,20 @@
 	    </div>
 	    <div class="hide-on-small-only" style="margin-bottom: 6rem"></div>
 	    <div class="hide-on-med-and-up" style="margin-bottom: 8rem"></div>
-	    <div class="center-align">
-	    	<button class="btn green waves-effect">Submit</button>
-	    </div>
+
+    	<div class="row hide-on-small-only">
+    		<div class="col offset-l4">{!! htmlFormSnippet() !!}</div>
+    		<div class="col">
+    			<button class="btn green waves-effect">Submit</button>
+    		</div>
+    	</div>
+
+    	<div class="row hide-on-med-and-up">
+    		<div class="col">{!! htmlFormSnippet() !!}</div>
+    		<div class="col offset-s4">
+    			<button style="margin-top: 0.5rem" class="btn green waves-effect">Submit</button>
+    		</div>
+    	</div>
 	</form>
 
 @endsection

@@ -17,6 +17,7 @@
 		i.prefix {
 			right: 0 !important;
 			cursor: pointer;
+			z-index: 100;
 		}
 
 		i.prefix input {
