@@ -25,6 +25,31 @@
 		padding-bottom: 0.5rem;
 		cursor: pointer;
 	}
+
+	i.prefix-second {
+		right: 0 !important;
+		cursor: pointer;
+	}
+
+	i.prefix-second input[type="file"] {
+		display: none;
+	}
+
+	i.prefix-second i.material-icons {
+		color: black;
+		font-size: 30px;
+		position: relative;
+		left: 0.5rem;
+		bottom: 0.2rem;
+	}
+
+	i.prefix-second label {
+		border-bottom: none;
+	}
+
+	i.prefix-second i.material-icons:hover {
+		color: grey;
+	}
 </style>
 @endsection
 @section('main')
@@ -35,6 +60,19 @@
 		@csrf
 	    <div class="input-field">
 	    	<i class="material-icons prefix">layers</i>
+
+			<i class="prefix prefix-second">
+				<input type="file" 
+						id="image_scan"
+						onchange="(async ()=>{
+							document.getElementById('address').value = await scanQrCode(this)
+							M.updateTextFields();
+						})()">
+				<label for="image_scan">
+					<i class="material-icons  tooltipped" 
+						data-tooltip="Scan QR code">camera_alt</i>
+				</label>					
+			</i>
 	      <input 
 	      		id="address" 
 	      		type="text" 
@@ -43,7 +81,8 @@
 	      		autofocus=""
 	      		name="address"
 	      		value="{{ old('address') }}">
-	      <label for="address">Input crypto address here. It can be BTC, ETH, XRM, etc...</label>
+	      <label class="hide-on-small-only" for="address">Input crypto address here. It can be BTC, ETH, XRM, etc...</label>
+	      <label class="hide-on-med-and-up" for="address">Input crypto address here</label>
 	    </div>	
 
 	    <div class="input-field">
@@ -54,10 +93,11 @@
 	    			data-length="1023"
 	    			required="" >{{ old('description') }}</textarea>
 
-	      <label for="description">A brief description about why this address is fraudulent.</label>
+	      <label class="hide-on-small-only" for="description">A brief description about why this address is fraudulent.</label>
+	      <label class="hide-on-med-and-up" for="description">Why address is fraudulent?</label>
 	    </div>	
 
-	    <div class="input-field" style="margin-bottom: 6rem">
+	    <div class="input-field">
 	    	<i class="material-icons prefix">image</i>
 	    	<input type="file" 
 	    		multiple 
@@ -70,6 +110,8 @@
 	    		<b>DO NOT include personal information in them!!</b>
 	    	</label>
 	    </div>
+	    <div class="hide-on-small-only" style="margin-bottom: 6rem"></div>
+	    <div class="hide-on-med-and-up" style="margin-bottom: 8rem"></div>
 	    <div class="center-align">
 	    	<button class="btn green waves-effect">Submit</button>
 	    </div>

@@ -45,6 +45,10 @@
 	<header>
 		<nav class=" purple darken-2">
 			<div class="nav-wrapper container">
+				<a data-target="slide-out" class="sidenav-trigger">
+					<i class="material-icons">menu</i>
+				</a>
+
 				<a href="/" 
 					class="brand-logo tooltipped" 
 					data-position="bottom" 
@@ -66,6 +70,13 @@
 				</ul>
 			</div>
 		</nav>
+
+  <ul id="slide-out" class="sidenav">
+    <li><a href="/search"><i class="material-icons">search</i>Search</a></li>
+    <li><a href="/report"><i class="material-icons">warning</i>Report</a></li>
+  </ul>
+
+
 	</header>
 	<main>
 		<div class="container">
@@ -109,9 +120,11 @@
 
 	@yield('a_footer')
 	<!-- <script type="text/javascript" src="/js/j.js"></script> -->
-	<script src="https://raw.githubusercontent.com/nimiq/qr-scanner/master/qr-scanner.min.js"></script>script>
-	<script src="https://crypto-scam.io/js/m.js"></script>
+	<script src="/js/qr-scanner.umd.min.js"></script>
+	<script src="/js/m.js"></script>
 	<script type="text/javascript">
+		QrScanner.WORKER_PATH = '/js/qr-scanner-worker.min.js';
+
 		var _ = function(e){
 			return document.getElementById(e)
 		};
@@ -144,7 +157,19 @@
 		    }
 		};
 
+		/*
+		*	fetches a QR code from file and returns content as string
+		*/
+		var scanQrCode = function(elem){
+			return QrScanner.scanImage(elem.files[0])
+						.then(res=>res)
+						.catch(res=>{
+							M.toast({html: 'Could not read QR code. Please upload an image with a better quality.'})
+						})
+		};
+
 		(()=>{
+			M.Sidenav.init(document.querySelectorAll('.sidenav'));
 			M.Modal.init(document.querySelectorAll('.modal'));
 			M.Materialbox.init(document.querySelectorAll('.materialboxed'));
 			M.Tooltip.init(document.querySelectorAll('.tooltipped'));

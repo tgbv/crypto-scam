@@ -11,6 +11,32 @@
 			font-family: Consolas;
 			letter-spacing: 0.5px;
 			text-align: center;
+			margin-left: 0 !important;
+		}
+
+		i.prefix {
+			right: 0 !important;
+			cursor: pointer;
+		}
+
+		i.prefix input {
+			display: none;
+		}
+
+		i.prefix i.material-icons {
+			color: black;
+			font-size: 30px;
+			position: relative;
+			left: 0.5rem;
+			bottom: 0.2rem;
+		}
+
+		i.prefix i.material-icons:hover {
+			color: grey;
+		}
+
+		label {
+			margin-left: 0 !important;
 		}
 
 		/* Inactive/Active Default input field color */
@@ -63,14 +89,35 @@
 	</style>
 	<div class="row">
 		<div class="col s12 m10 l10">
-			<div class="input-field tooltipped" 
+			<div class="input-field " 
 				search-field
-				data-tooltip="Use this input to search for a potential fraudulent address"
 			>
+				<i class="prefix">
+					<input type="file" 
+							id="image_scan"
+							onchange="(async ()=>{
+								let tmp;
+
+								if( (tmp = await scanQrCode(this)) && tmp !== undefined)
+								{
+									document.getElementById('search_address').value = tmp
+									M.updateTextFields();
+									window.location = '/search/'+document.getElementById('search_address').value									
+								}
+
+							})()">
+					<label for="image_scan">
+						<i class="material-icons  tooltipped" 
+							data-tooltip="Scan QR code">camera_alt</i>
+					</label>					
+				</i>
+
+
 				<input id="search_address" 
 						name="address"
 						type="text" 
-						class="validate "
+						class="validate tooltipped"
+						data-tooltip="Use this input to search for a potential fraudulent address"
 						required
 						autofocus
 						onclick="this.select()"
@@ -80,7 +127,8 @@
 								window.location = '/search/'+event.target.value
 						" 
 						>
-				<label for="search_address">It can be BTC, ETH, XRM, etc...</label>
+				<label for="search_address" >It can be BTC, ETH, XRM, etc...</label>
+
 			</div>
 		</div>
 		<div class="col s1 m2 l2 offset-s4">
@@ -90,4 +138,7 @@
 		<div class="col s12">
 		</div>
 	</div>
+	<script type="text/javascript">
+
+	</script>
 </div>
