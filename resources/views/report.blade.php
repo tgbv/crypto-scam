@@ -52,13 +52,13 @@
 		color: grey;
 	}
 </style>
-{!! htmlScriptTagJsApi() !!}
+{!! htmlScriptTagJsApi(['form_id' => 'report_form']) !!}
 @endsection
 @section('main')
 	<h3 class="hide-on-small-only" main-header>Report an address:</h3>
 	<h4 class="hide-on-med-and-up" main-header>Report an address:</h4>
 <br>
-	<form method="POST" enctype="multipart/form-data" action="/report">
+	<form method="POST" enctype="multipart/form-data" action="/report" id="report_form">
 		@csrf
 	    <div class="input-field">
 	    	<i class="material-icons prefix">layers</i>
@@ -120,19 +120,9 @@
 	    <div class="hide-on-small-only" style="margin-bottom: 6rem"></div>
 	    <div class="hide-on-med-and-up" style="margin-bottom: 8rem"></div>
 
-    	<div class="row hide-on-small-only">
-    		<div class="col offset-l4">{!! htmlFormSnippet() !!}</div>
-    		<div class="col">
-    			<button class="btn green waves-effect">Submit</button>
-    		</div>
-    	</div>
-
-    	<div class="row hide-on-med-and-up">
-    		<div class="col">{!! htmlFormSnippet() !!}</div>
-    		<div class="col offset-s4">
-    			<button style="margin-top: 0.5rem" class="btn green waves-effect">Submit</button>
-    		</div>
-    	</div>
+	    <div class="center-align">
+	    	{!! htmlFormButton('Submit', ['class'=>'btn green waves-effect']) !!}
+	    </div>
 	</form>
 
 @endsection
