@@ -53,7 +53,8 @@ class Handler extends ExceptionHandler
     {
         if(strpos($request->server('HTTP_HOST'), 'api.') === 0)
             return response()->json([
-                'message' => $exception->getMessage()
+                'message' => $exception->getMessage(),
+                'code' => $exception->getCode() ?? 500,
             ]);
         else
             return parent::render($request, $exception);
