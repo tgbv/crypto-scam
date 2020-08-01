@@ -13,7 +13,7 @@ Let's assume three fictionary men: John Doe, Foo Bar, Baz Bar
 
 1. John Doe spots a scammy Youtube ad with a fraudulent BTC/ETH/XRM/etc.. address claiming to triple the amount of coins you send to it. He goes to https://crypto-scam.io/report and reports it.
 2. Foo Bar spots the ad as well but doesn't know it's an advance-fee scheme. He proceeds to send funds to the address.
-3. Before executing the order, the wallet software used by Foo Bar queries the database of https://crypto-scam.io (check API reference below) to check if the receipt address is fraudulent. Because John Doe already reported it, Crypto Scam signals it, and wallet software halts the transaction initiated by Foo Bar preventing him from falling into the scam.
+3. Before executing the order, the wallet software used by Foo Bar queries the database of https://crypto-scam.io (see API reference below) to check if the receipt address is fraudulent. Because John Doe already reported it, Crypto Scam signals it, and wallet software halts the transaction initiated by Foo Bar preventing him from falling into the scam.
 4. Alternatively Baz Bar spots the ad as well but he's suspicious about it. He goes to https://crypto-scam.io/search and manually queries the database only to discover the address is fraudulent.
 
 ## API reference
