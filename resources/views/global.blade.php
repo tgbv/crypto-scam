@@ -37,7 +37,13 @@
 		h4[main-header]{
 			font-weight: 350;
 		}
+		h5[main-header] {
+			font-weight: 400;
+		}
 
+		a[data-target="slide-out"] {
+			cursor: pointer;
+		}
 	</style>
 	@yield('head')
 </head>

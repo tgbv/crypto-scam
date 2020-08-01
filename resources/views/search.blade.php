@@ -95,7 +95,7 @@
 @endsection
 @section('main')
 	<h3 class="hide-on-small-only" main-header>Search for an address:</h3>
-	<h4 class="hide-on-med-and-up" main-header>Search for an address:</h4>
+	<h5 class="hide-on-med-and-up" main-header>Search for an address:</h5>
 	@include('comps.search')
 
 	@if(isset($DATA))

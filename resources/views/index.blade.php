@@ -7,7 +7,7 @@
 	p {
 		font-size: 22px;
 		font-weight: 300;
-		margin-left: 0.5rem;
+		margin-left: 0.1rem;
 	}
 
 	a {
@@ -30,9 +30,15 @@
 @section('main')
 
 
-	<h2>What is this?</h2>
+	<h3 class="hide-on-small-only" main-header>Search for an address:</h3>
+	<h5 class="hide-on-med-and-up" main-header>Search for an address:</h5>
 
-	<p>
+	@include('comps.search')
+
+	<h3 class="hide-on-small-only" main-header>What is this?</h3>
+	<h5 class="hide-on-med-and-up" main-header>What is this?</h5>
+
+	<p class="flow-text">
 		You've probably heard of the 
 		"<a href="https://news.bitcoin.com/elon-musk-bitcoin-giveaway-scam-millions-dollars-btc/"
 			target="_blank">Elon Musk bitcoins giveaway"</a>. 
@@ -47,7 +53,7 @@
 
 	<a id="read_more" onclick="switchReadMore()">Read more</a>
 
-	<p id="first_p" hidden>
+	<p id="first_p" hidden  class="flow-text">
 		TLDR: many scammers have started 
 		<a href="https://www.fbi.gov/scams-and-safety/common-scams-and-crimes/advance-fee-schemes"
 			target="_blank">advance-fee schemes</a> using cryptocurrencies, mainly bitcoins.
@@ -65,11 +71,6 @@
 		querying this database.
 		Below you have a search field to query the database for potential fraudulent addresses.
 	</p>
-
-	<h3 class="hide-on-small-only" main-header>Search for an address:</h3>
-	<h4 class="hide-on-med-and-up" main-header>Search for an address:</h4>
-
-	@include('comps.search')
 
 @endsection
 

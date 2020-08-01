@@ -41,19 +41,19 @@ The third state hasn't been implemented in current application version yet for p
 2. https://crypto-scam.io/report is used to report a fraudulent address
 
 ## Privacy statement and Terms of Service
-"I" refers to me, the original creator of this project.
+"I" refers to me (tgbv), the original creator of this project.
 "We" refers to the contributors of this project (including me).
 "You" refers to you, as consumer/user of this service.
 
 I and future contributors of this project don't want/intent to disclose the privacy of anyone using this service.
-Using our service provides you agree with below two subheaders:
+Using it provides you understand and agree with below statements:
 
-- **When using the GUI site (https://crypto-scam.io and its subpaths)**
-1. We use your WAN IP address and User-Agent header in order to forge a temporary cookie for your browser, to identify your session amid accessing our site. We do that to prevent abuse of functionalities of our site.
-2. We store your WAN IP address and User-Agent header + everything you send via https://crypto-scam.io/report **only** to prevent abuse of our form.
-
-- **When using the API (https://api.crypto-scam.io and its subpaths)**
-1. We temporarily store in our cache your WAN IP address and a mix of headers sent by your machine to prevent abuse. We **don't** store GET request data (paths/parameters).
+- All the data (IP address and request body) you share with us to provide you this service **does not** constitute personal identifiable information. We do not want it to be so anyhow.
+- Before accessing any layer of our site, your request body passes through Cloudflare's infrastructure to prevent abuse.
+- We use Google's Invisible reCaptcha v2; IP address and request headers will be shared with them as well when submitting POST forms.
+- We collect and in some cases store machine-identifiable information (IP addresses and request headers) for indefinite periods of time in our server/database to prevent abuse. 
+- We naturally store most of the data sent via our Report form: https://crypto-scam.io/report
+- We use cookies (as most websites do) to prevent abuse.
 
 ## Supported crypto address types
 

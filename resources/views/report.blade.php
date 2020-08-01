@@ -66,6 +66,7 @@
 			<i class="prefix prefix-second">
 				<input type="file" 
 						id="image_scan"
+						accept=".png,.jpg,.jpeg"
 						onchange="(async ()=>{
 							let tmp
 
@@ -135,16 +136,25 @@
 	})()
 
 	var labelProofsUpdate = function(elem){
-		if(elem.files.length > 3){
-			alert('You can upload only 3 proofs at most.')
-			//elem.files.slice(0, 3)
+		let files = elem.files
+
+		if(files.length > 2){
+			alert('You can upload only 2 proofs at most. List has been truncated.')
+
+			let list = new DataTransfer
+
+			for(let i=0; i<2; i++)
+				list.items.add(files[i])
+
+			elem.files = list.files
 		}
 		
 		let str='';
 
 		for(i in elem.files){
-			if(elem.files[i] instanceof File)
-				str += elem.files[i].name+' | '
+			if(elem.files[i] instanceof File){
+				str += elem.files[i].name+ (elem.files.item(i+1)  ? ' | ' : '')
+			}
 		}
 
 		document.getElementById("label_proofs").innerHTML = str;
