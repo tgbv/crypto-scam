@@ -28,7 +28,7 @@ class GetCryptos extends Controller
 	    	return response()->json([
                 'status' => 'unknown',
 	    		'message' => 'Address not reported yet.',
-	    	], 404);
+	    	]);
     }
 
     #
