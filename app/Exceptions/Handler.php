@@ -51,6 +51,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        return parent::render($request, $exception);
+        if(strpos($request->server('HTTP_HOST'), 'api.') === 0)
+            return response()->json([
+                'message' => $exception->getMessage()
+            ]);
+        else
+            return parent::render($request, $exception);
     }
 }

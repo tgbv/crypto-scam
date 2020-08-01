@@ -1,7 +1,7 @@
 <?php
 
 // main site
-Route::domain(env('APP_DOMAIN'))->group(function(){
+Route::domain(config('app.domain'))->group(function(){
 	// homepage
 	Route::get('/', function () { return view('index'); });
 
@@ -17,7 +17,7 @@ Route::domain(env('APP_DOMAIN'))->group(function(){
 });
 
 // static area
-Route::domain('static.'. env('APP_DOMAIN'))->group(function(){
+Route::domain('static.'. config('app.domain'))->group(function(){
 	Route::name('proof-download')->get('{file}', function($file){
 		return \Storage::disk('proofs')->download($file) ;
 	});
