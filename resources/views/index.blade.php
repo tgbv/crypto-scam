@@ -66,10 +66,9 @@
 			<br>
 
 		I do not seek to disclose the privacy of any cryptocurrency user, and you can
-		check that in the source code of the project. 
+		check that in the source code of the project (Github). 
 		No IP address/cookie/user-agent data paired with the searched address is logged when
 		querying this database.
-		Below you have a search field to query the database for potential fraudulent addresses.
 	</p>
 
 @endsection
