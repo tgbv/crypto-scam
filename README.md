@@ -42,7 +42,7 @@ The third state hasn't been implemented in current application version yet for p
 
 ## Privacy statement and Terms of Service
 "I" refers to me (tgbv), the original creator of this project.
-"We" refers to the contributors of this project (including me).
+"We" refers to us, the contributors of this project (including me).
 "You" refers to you, as consumer/user of this service.
 
 I and future contributors of this project don't want/intent to disclose the privacy of anyone using this service.
