@@ -41,7 +41,7 @@ class ReportAddress extends Controller
       else
         return redirect()
               ->back()
-              ->withErrors('You can report once every 15 minutes.')
+              ->withErrors('You can report once every 15 minutes.');
     }
 
     #
