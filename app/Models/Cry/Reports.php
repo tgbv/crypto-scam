@@ -31,7 +31,7 @@ class Reports extends Model
 	public function getAddresses()
 	{
 		return $this->belongsToMany(
-			\App\Models\Cry\Reports::class,
+			\App\Models\Cry\AddressesList::class,
 			'cry_report_address',
 			'report_id',
 			'address_id',

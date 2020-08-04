@@ -15,12 +15,12 @@
 		border: 1px solid #e0e0e0;
 	}
 
-	table.hide-on-small-only tbody tr {
+	table.hide-on-small-only tbody tr td {
 		transition: 0.1s;
 		cursor: pointer;
 	}
 
-	table.hide-on-small-only tbody tr:hover {
+	table.hide-on-small-only tbody tr td:hover {
 		background-color: #f2f1f1;
 	}
 
@@ -69,7 +69,7 @@
 		width: 70px;
 	}
 
-	table.hide-on-med-and-up tbody tr:hover {
+	table.hide-on-med-and-up tbody tr td:hover {
 		background-color: #f2f1f1;
 	}
 
@@ -92,16 +92,16 @@
 			<th>Address</th>
 		</thead>
 		<tbody>
-			@foreach($DATA as $Address)
+			@foreach($DATA as $Report)
 			<tr>
-				<td>{{ $Address->id }}</td>
-				<td>{{ $Address->created_at->diffForHumans() }}</td>
+				<td>{{ $Report->id }}</td>
+				<td>{{ $Report->created_at->diffForHumans() }}</td>
 				<th><b class="red-text"><code>SCAM</code></b></th>
 				<td>
-					<code>{{ $Address->address }}</code>
+					<code>{{ $Report->getAddresses->first()->address }}</code>
 					<span>
     					<a onclick="
-    						M.toast({html: copyToClipboard('{{ $Address->address }}') ?
+    						M.toast({html: copyToClipboard('{{ $Report->getAddresses->first()->address }}') ?
 								'Address copied!' : 'Error occurred.'
 							})"
 							class="tooltipped"
@@ -109,7 +109,7 @@
 							data-position="top">
 							<i class="material-icons">content_copy</i>
 						</a>
-						<a href="{{ route('site-search-address', $Address->address) }}"
+						<a href="{{ route('site-search-address', $Report->getAddresses->first()->address) }}"
 							class="tooltipped"
 							data-tooltip="View detalied reports">
 							<i class="material-icons">info</i>
@@ -128,15 +128,15 @@
 			<th>Address</th>
 		</thead>
 		<tbody>
-			@foreach($DATA as $Address)
+			@foreach($DATA as $Report) 
 			<tr>
-				<td>{{ $Address->created_at->diffForHumans(['parts'=>1], null, true) }}</td>
+				<td>{{ $Report->created_at->diffForHumans(['parts'=>1], null, true) }}</td>
 				<th><b class="red-text"><code>SCAM</code></b></th>
 				<td>
-					<span class="truncate"><code>{{ $Address->address }}</code></span>
+					<span class="truncate"><code>{{ $Report->getAddresses->first()->address }}</code></span>
 					<span>
     					<a onclick="
-    						M.toast({html: copyToClipboard('{{ $Address->address }}') ?
+    						M.toast({html: copyToClipboard('{{ $Report->getAddresses->first()->address }}') ?
 								'Address copied!' : 'Error occurred.'
 							})"
 							class="tooltipped"
@@ -144,7 +144,7 @@
 							data-position="top">
 							<i class="material-icons">content_copy</i>
 						</a>
-						<a href="{{ route('site-search-address', $Address->address) }}"
+						<a href="{{ route('site-search-address', $Report->getAddresses->first()->address) }}"
 							class="tooltipped"
 							data-tooltip="View detalied reports">
 							<i class="material-icons">info</i>
