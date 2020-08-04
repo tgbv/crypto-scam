@@ -15,12 +15,12 @@
 		border: 1px solid #e0e0e0;
 	}
 
-	table.hide-on-small-only tbody tr td {
+	table.hide-on-small-only tbody tr {
 		transition: 0.1s;
 		cursor: pointer;
 	}
 
-	table.hide-on-small-only tbody tr td:hover {
+	table.hide-on-small-only tbody tr:hover {
 		background-color: #f2f1f1;
 	}
 
@@ -69,7 +69,7 @@
 		width: 70px;
 	}
 
-	table.hide-on-med-and-up tbody tr td:hover {
+	table.hide-on-med-and-up tbody tr:hover {
 		background-color: #f2f1f1;
 	}
 
