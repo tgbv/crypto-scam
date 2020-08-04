@@ -15,12 +15,12 @@
 		border: 1px solid #e0e0e0;
 	}
 
-	table.hide-on-small-only tbody {
+	table.hide-on-small-only tbody tr td {
 		transition: 0.1s;
 		cursor: pointer;
 	}
 
-	table.hide-on-small-only tbody:hover {
+	table.hide-on-small-only tbody tr td:hover {
 		background-color: #f2f1f1;
 	}
 
@@ -57,7 +57,7 @@
 	}
 
 	table.hide-on-med-and-up {
-		table-layout: fixed; 
+		table-layout: fixed;
 		width: 100%;
 	}
 
@@ -67,6 +67,10 @@
 
 	table.hide-on-med-and-up thead th:nth-child(2) {
 		width: 70px;
+	}
+
+	table.hide-on-med-and-up tbody tr td:hover {
+		background-color: #f2f1f1;
 	}
 
 	table.hide-on-med-and-up td a i.material-icons {
@@ -97,19 +101,19 @@
 					<code>{{ $Address->address }}</code>
 					<span>
     					<a onclick="
-    						M.toast({html: copyToClipboard('{{ $Address->address }}') ? 
+    						M.toast({html: copyToClipboard('{{ $Address->address }}') ?
 								'Address copied!' : 'Error occurred.'
 							})"
 							class="tooltipped"
 							data-tooltip="Copy address to clipboard"
 							data-position="top">
 							<i class="material-icons">content_copy</i>
-						</a>	
+						</a>
 						<a href="{{ route('site-search-address', $Address->address) }}"
 							class="tooltipped"
 							data-tooltip="View detalied reports">
 							<i class="material-icons">info</i>
-						</a>	
+						</a>
 					</span>
 				</td>
 			</tr>
@@ -132,19 +136,19 @@
 					<span class="truncate"><code>{{ $Address->address }}</code></span>
 					<span>
     					<a onclick="
-    						M.toast({html: copyToClipboard('{{ $Address->address }}') ? 
+    						M.toast({html: copyToClipboard('{{ $Address->address }}') ?
 								'Address copied!' : 'Error occurred.'
 							})"
 							class="tooltipped"
 							data-tooltip="Copy address to clipboard"
 							data-position="top">
 							<i class="material-icons">content_copy</i>
-						</a>	
+						</a>
 						<a href="{{ route('site-search-address', $Address->address) }}"
 							class="tooltipped"
 							data-tooltip="View detalied reports">
 							<i class="material-icons">info</i>
-						</a>	
+						</a>
 					</span>
 				</td>
 			</tr>

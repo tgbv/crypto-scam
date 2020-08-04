@@ -50,7 +50,7 @@
 		}
 
 		.input-field input[type=text]:focus {
-		    border-bottom: 1px solid #e33 !important; 
+		    border-bottom: 1px solid #e33 !important;
 		    box-shadow: none !important;
 		}
 
@@ -83,40 +83,41 @@
 			color: white;
 			cursor: pointer;
 		}
-	
+
 		div.input-field label {
 			cursor: pointer;
 		}
 	</style>
 	<div class="row">
 		<div class="col s12 m10 l10">
-			<div class="input-field " 
+			<div class="input-field "
 				search-field
 			>
 				<i class="prefix">
-					<input type="file" 
+					<input type="file"
 							id="image_scan"
 							onchange="(async ()=>{
 								let tmp;
 
 								if( (tmp = await scanQrCode(this)) && tmp !== undefined)
 								{
-									document.getElementById('search_address').value = tmp
+									let split = tmp.split(':')
+									document.getElementById('search_address').value = split.length > 1 ? split[split.length-1] : tmp
 									M.updateTextFields();
-									window.location = '/search/'+document.getElementById('search_address').value									
+									window.location = '/search/'+document.getElementById('search_address').value
 								}
 
 							})()">
 					<label for="image_scan">
-						<i class="material-icons  tooltipped" 
+						<i class="material-icons  tooltipped"
 							data-tooltip="Scan QR code">camera_alt</i>
-					</label>					
+					</label>
 				</i>
 
 
-				<input id="search_address" 
+				<input id="search_address"
 						name="address"
-						type="text" 
+						type="text"
 						class="validate tooltipped"
 						data-tooltip="Use this input to search for a potential fraudulent address"
 						required
@@ -126,14 +127,14 @@
 						onkeydown="
 							if(event.keyCode === 13 || event.which === 13)
 								window.location = '/search/'+event.target.value
-						" 
+						"
 						>
 				<label for="search_address" >It can be BTC, ETH, XRM, etc...</label>
 
 			</div>
 		</div>
 		<div class="col s1 m2 l2 offset-s4">
-			<button class="btn green waves-effect" 
+			<button class="btn green waves-effect"
 					onclick="window.location = '/search/'+document.getElementById('search_address').value">Search</button>
 		</div>
 		<div class="col s12">

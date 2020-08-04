@@ -64,7 +64,7 @@
 	    	<i class="material-icons prefix">layers</i>
 
 			<i class="prefix prefix-second">
-				<input type="file" 
+				<input type="file"
 						id="image_scan"
 						accept=".png,.jpg,.jpeg"
 						onchange="(async ()=>{
@@ -72,18 +72,19 @@
 
 							if((tmp = await scanQrCode(this)) && tmp !== undefined)
 							{
-								document.getElementById('address').value = tmp
-								M.updateTextFields();								
+								let split = tmp.split(':')
+								document.getElementById('address').value = split.length > 1 ? split[split.length-1] : tmp
+								M.updateTextFields();
 							}
 						})()">
 				<label for="image_scan">
-					<i class="material-icons  tooltipped" 
+					<i class="material-icons  tooltipped"
 						data-tooltip="Scan QR code">camera_alt</i>
-				</label>					
+				</label>
 			</i>
-	      <input 
-	      		id="address" 
-	      		type="text" 
+	      <input
+	      		id="address"
+	      		type="text"
 	      		class="validate"
 	      		required=""
 	      		autofocus=""
@@ -91,11 +92,11 @@
 	      		value="{{ old('address') }}">
 	      <label class="hide-on-small-only" for="address">Input crypto address here. It can be BTC, ETH, XRM, etc...</label>
 	      <label class="hide-on-med-and-up" for="address">Input crypto address here</label>
-	    </div>	
+	    </div>
 
 	    <div class="input-field">
 	    	<i class="material-icons prefix">info</i>
-	    	<textarea id="description" 
+	    	<textarea id="description"
 	    			class="materialize-textarea"
 	    			name="description"
 	    			data-length="1023"
@@ -103,18 +104,18 @@
 
 	      <label class="hide-on-small-only" for="description">A brief description about why this address is fraudulent.</label>
 	      <label class="hide-on-med-and-up" for="description">Why address is fraudulent?</label>
-	    </div>	
+	    </div>
 
 	    <div class="input-field">
 	    	<i class="material-icons prefix">image</i>
-	    	<input type="file" 
-	    		multiple 
-	    		id="proofs" 
-	    		name="proofs[]" 
-	    		accept=".jpg,.jpeg,.png" 
+	    	<input type="file"
+	    		multiple
+	    		id="proofs"
+	    		name="proofs[]"
+	    		accept=".jpg,.jpeg,.png"
 	    		onchange="labelProofsUpdate(this)" >
 	    	<label for="proofs" id="label_proofs">
-	    		Optional. Upload images which prove your report. 
+	    		Optional. Upload images which prove your report.
 	    		<b>DO NOT include personal information in them!!</b>
 	    	</label>
 	    </div>
@@ -148,7 +149,7 @@
 
 			elem.files = list.files
 		}
-		
+
 		let str='';
 
 		for(i in elem.files){
