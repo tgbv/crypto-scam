@@ -44,8 +44,9 @@ CREATE TABLE `cry_reports` (
   `id` int(10) UNSIGNED NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `attachments` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`attachments`)),
-  `client_ip` varchar(45) CHARACTER SET ascii NOT NULL,
-  `client_agent` varchar(2047) CHARACTER SET ascii NOT NULL,
+  `client_ip` varchar(45) CHARACTER SET ascii DEFAULT NULL,
+  `client_agent` varchar(2047) CHARACTER SET ascii DEFAULT NULL,
+  `client_fingerprint` varchar(40) CHARACTER SET ascii NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -79,7 +80,7 @@ ALTER TABLE `cry_reports`
   ADD PRIMARY KEY (`id`);
 ALTER TABLE `cry_reports` ADD FULLTEXT KEY `client_ip` (`client_ip`);
 ALTER TABLE `cry_reports` ADD FULLTEXT KEY `client_agent` (`client_agent`);
-
+ALTER TABLE `cry_reports` ADD FULLTEXT KEY `client_fingerprint` (`client_fingerprint`);
 --
 -- Indexes for table `cry_report_address`
 --

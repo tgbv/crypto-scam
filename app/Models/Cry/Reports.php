@@ -17,8 +17,7 @@ class Reports extends Model
 
 	# fillable
 	protected $fillable = [
-		'description', 'attachments', 'client_ip',
-		'client_agent', 
+		'description', 'attachments', 'client_fingerprint',
 	];
 
 	# casts
@@ -39,5 +38,15 @@ class Reports extends Model
 			'id',
 			'id',
 		);
+	}
+
+	#
+	#	search a report by fingerprint
+	#
+	public static function getByFingerprint(string $f, array $select = ['created_at'])
+	{
+		return self::select($select)
+							->where('client_fingerprint', $f)
+							->first();
 	}
 }

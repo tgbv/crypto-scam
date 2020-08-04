@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\PubSite;
 
+use App\Models\Cry\Reports;
 use App\Models\Cry\Types as AddressesTypes;
 use App\Models\Cry\AddressesList;
 use App\Rules\CheckCryptoAddress;
@@ -18,17 +19,29 @@ class ReportAddress extends Controller
     #
     public function report(Request $Request)
     {
+      # validate report
     	$validated = $this->validateData($Request);
 
-    	$this->storeReport(
-    		$validated, 
-    		$this->storeFiles($validated['proofs'] ?? []),
-    		$Request,
-    	);
+      # checks if a client already reported an address.
+      # one client can report one address once every 15 minutes
+      if($this->clientCanReportAddress($Request))
+      {
+        # store report
+      	$this->storeReport(
+      		$validated,
+      		$this->storeFiles($validated['proofs'] ?? []),
+      		$Request,
+      	);
 
-    	return redirect()
-    			->route('site-search-address', $validated['address'])
-    			->withErrors('Address reported with success!');
+        # return
+      	return redirect()
+      			->route('site-search-address', $validated['address'])
+      			->withErrors('Address reported with success!');
+      }
+      else
+        return redirect()
+              ->back()
+              ->withErrors('You can report once every 15 minutes.')
     }
 
     #
@@ -56,7 +69,7 @@ class ReportAddress extends Controller
     		$ret[] = $file->storeAs('', $this->generateFilename($file->clientExtension()), [
     			'disk' => 'proofs'
     		]);
-    	
+
 
     	return $ret;
     }
@@ -79,8 +92,7 @@ class ReportAddress extends Controller
 		    		->create([
 		    			'description' => $validated['description'],
 		    			'attachments' => $fnames,
-		    			'client_ip' => $Request->ip(),
-		    			'client_agent' => $Request->userAgent(),
+              'client_fingerprint' => $this->genFingerprint($Request),
 		    		]);
     }
 
@@ -105,5 +117,26 @@ class ReportAddress extends Controller
     	foreach(AddressesTypes::all() as $Type)
     		if( CryptoValidation::make(strtoupper($Type->abb))->validate($address) )
     			return $Type;
+    }
+
+    #
+    # checks if client can report an address
+    #
+    private function clientCanReportAddress($Request)
+    {
+      $report = Reports::getByFingerprint($this->genFingerprint($Request));
+
+      if($report !== null)
+        return $report->created_at->timestamp+15*60 < time() ;
+      else
+        return true ;
+    }
+
+    #
+    # generates a client fingerprint
+    #
+    private function genFingerprint($Request): string
+    {
+      return sha1($Request->ip().$Request->userAgent()) ;
     }
 }
