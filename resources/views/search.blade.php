@@ -1,6 +1,9 @@
 @extends('global')
 
-@section('title') Crypto Scam - Search for potential fraudulent crypto addresses @endsection
+@section('title') 
+	Crypto Scam - @if(isset($DATA) && $DATA) Address [{{ $DATA->address }}] information @else Search for potential fraudulent crypto addresses @endif
+
+@endsection
 @section('head')
 <meta name="description" content="Search for potential fraudulent cryptocurrency addresses. Supports BTC, ETH, XRP, and many others.">
 <style type="text/css">
