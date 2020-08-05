@@ -47,6 +47,7 @@ class Reports extends Model
 	{
 		return self::select($select)
 							->where('client_fingerprint', $f)
+							->orderBy('id', 'desc')
 							->first();
 	}
 }
