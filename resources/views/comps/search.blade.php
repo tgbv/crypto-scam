@@ -12,6 +12,7 @@
 			letter-spacing: 0.5px;
 			text-align: center;
 			margin-left: 0 !important;
+			width: 100% !important;
 		}
 
 		i.prefix {
@@ -133,7 +134,12 @@
 
 			</div>
 		</div>
-		<div class="col s1 m2 l2 offset-s4">
+		<div class="col s1 m2 l2 hide-on-small-only">
+			<button class="btn green waves-effect"
+					onclick="window.location = '/search/'+document.getElementById('search_address').value">Search</button>
+		</div>
+
+		<div class="center-align hide-on-med-and-up">
 			<button class="btn green waves-effect"
 					onclick="window.location = '/search/'+document.getElementById('search_address').value">Search</button>
 		</div>

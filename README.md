@@ -45,13 +45,13 @@ The third state hasn't been implemented in current application version yet for p
 "We" refers to us, the contributors of this project (including me).
 "You" refers to you, as consumer/user of this service.
 
-I and future contributors of this project don't want/intent to disclose the privacy of anyone using this service.
+The contributors of this project don't want/intent to disclose the privacy of anyone using this service.
 Using it provides you understand and agree with below statements:
 
 - All the data (IP address and request body) you share with us to provide you this service **does not** constitute personal identifiable information. We do not want it to be so anyhow.
 - Before accessing any layer of our site, your request body passes through Cloudflare's infrastructure to prevent abuse.
 - We use Google's Invisible reCaptcha v2; IP address and request headers will be shared with them as well when submitting POST forms.
-- We collect and in some cases store machine-identifiable information (IP addresses and request headers) for indefinite periods of time in our server/database to prevent abuse. 
+- We collect and in some cases store machine-identifiable information as hash-fingerprints for indefinite periods of time in our server/database to prevent abuse. 
 - We naturally store most of the data sent via our Report form: https://crypto-scam.io/report
 - We use cookies (as most websites do) to prevent abuse.
 
