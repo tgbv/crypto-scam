@@ -53,7 +53,7 @@ class ReportAddress extends Controller
     		'address' => ['bail', 'required', 'regex:/[a-zA-Z0-9]/', new CheckCryptoAddress],
     		'description' => 'bail|required|max:1023',
     		'proofs' => 'array|max:2',
-    		'proofs.*' => 'image|max:4096',
+    		'proofs.*' => 'image|max:8192',
             recaptchaFieldName() => recaptchaRuleName(),
     	]);
     }
