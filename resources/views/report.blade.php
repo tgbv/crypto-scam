@@ -2,6 +2,7 @@
 
 @section('title') Crypto Scam - Report a fraudulent address @endsection
 @section('head')
+<meta name="description" content="Report fraudulent cryptocurrency addresses. Supports BTC, ETH, XRP, and many others.">
 <style type="text/css">
 	input[type=text] {
 		/*color: #14fb00;*/

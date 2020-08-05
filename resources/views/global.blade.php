@@ -102,14 +102,14 @@
 					<ul>
 						<li><a class="grey-text text-lighten-3" href="{{ route('latest-reports') }}">Latest reports</a></li>
 						<li><a class="grey-text text-lighten-3" href="/report">Report address</a></li>
-						<li><a class="grey-text text-lighten-3" target="_blank" href="https://github.com/tgbv/crypto-scam/blob/beta/README.md#privacy-statement-and-terms-of-service">Privacy & ToS</a></li>
+						<li><a class="grey-text text-lighten-3" rel="nofollow" target="_blank" href="https://github.com/tgbv/crypto-scam/blob/beta/README.md#privacy-statement-and-terms-of-service">Privacy & ToS</a></li>
 					</ul>
 				</div>
 				<div class="col s6">
 					<h5 class="white-text">Resources</h5>
 					<ul>
-						<li><a class="grey-text text-lighten-3" target="_blank" href="https://github.com/tgbv/crypto-scam/blob/beta/README.md#api-reference">API reference</a></li>
-						<li><a class="grey-text text-lighten-3" target="_blank" href="https://github.com/tgbv/crypto-scam">Github</a></li>
+						<li><a class="grey-text text-lighten-3" rel="nofollow" target="_blank" href="https://github.com/tgbv/crypto-scam/blob/beta/README.md#api-reference">API reference</a></li>
+						<li><a class="grey-text text-lighten-3" rel="nofollow" target="_blank" href="https://github.com/tgbv/crypto-scam">Github</a></li>
 					</ul>
 				</div>
 			</div>
@@ -118,7 +118,7 @@
 		<div class="footer-copyright purple darken-3">
 			<div class="container">
 				© 2020 Crypto Scam contributors
-				<a class="grey-text text-lighten-4 right" href="https://github.com/tgbv/crypto-scam/blob/beta/license.txt" target="_blank">MIT</a>
+				<a class="grey-text text-lighten-4 right" rel="nofollow" href="https://github.com/tgbv/crypto-scam/blob/beta/license.txt" target="_blank">MIT</a>
 			</div>
 		</div>
 

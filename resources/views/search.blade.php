@@ -2,6 +2,7 @@
 
 @section('title') Crypto Scam - Search for potential fraudulent crypto addresses @endsection
 @section('head')
+<meta name="description" content="Search for potential fraudulent cryptocurrency addresses. Supports BTC, ETH, XRP, and many others.">
 <style type="text/css">
 
 	p {
@@ -240,7 +241,8 @@
 											data-tooltip="View proof"
 											onclick="openProof('{{$att}}')">panorama</i>
 										<a href="{{ route('proof-download', [$att]) }}"
-											target="_blank">
+											target="_blank"
+											rel="nofollow">
 											<i class="material-icons tooltipped"
 												data-position="top"
 												data-tooltip="Download proof">file_download</i>										
@@ -281,7 +283,7 @@
 
   <div id="view-proof" class="modal modal-fixed-footer">
     <div class="modal-content">
-    	<img class="materialboxed"  src="" id="view-proof-src">
+    	<img class="materialboxed"  src="" loading="lazy" id="view-proof-src">
     </div>
     <div class="modal-footer">
       <a class="modal-close waves-effect waves-green btn-flat">Exit</a>

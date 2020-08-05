@@ -2,6 +2,7 @@
 
 @section('title') Crypto Scam - An open source online database of cryptocurrency addresses used by scammers @endsection
 @section('head')
+<meta name="description" content="Search or report fraudulent cryptocurrency addresses. Supports BTC, ETH, XRP, and many others.">
 <style type="text/css">
 
 	p {
