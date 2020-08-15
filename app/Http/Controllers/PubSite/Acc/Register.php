@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\PubSite\Acc;
 
 use App\Models\Acc\Users;
-use App\Rules\UserEmailIsUnique; 
-use App\Rules\UserPhoneIsUnique; 
+use App\Rules\UserEmailIsUnique;
+use App\Rules\UserPhoneIsUnique;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class Register extends Controller
 {
-	#	dynamic validation rules 
+	#	dynamic validation rules
 	private $validationRules = [];
 
 	#
@@ -44,7 +44,7 @@ class Register extends Controller
 
     #
     #	validates data
-    #	
+    #
     private function validateData($Request)
     {
     	return $Request->validate($this->validationRules);

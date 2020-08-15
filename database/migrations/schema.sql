@@ -114,6 +114,18 @@ CREATE TABLE `cry_report_address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Table structure for table `acc_password_resets`
+--
+
+CREATE TABLE `acc_password_resets` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `type` tinyint(3) UNSIGNED NOT NULL,
+  `passphrase` text CHARACTER SET armscii8 NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
 -- Indexes for dumped tables
 --
 
@@ -188,6 +200,14 @@ ALTER TABLE `cry_addresses`
 ALTER TABLE `cry_reports`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+--
+-- Indexes for table `acc_password_resets`
+--
+ALTER TABLE `acc_password_resets`
+  ADD PRIMARY KEY (`user_id`);
+COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

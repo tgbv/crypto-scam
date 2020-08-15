@@ -87,6 +87,14 @@ class Users extends Model
 	}
 
 	#
+	#	retreive the active password resets records
+	#
+	public function getPasswordResets()
+	{
+		return $this->hasOne(\App\Models\Acc\PasswordResets::class, 'user_id', 'id');
+	}
+
+	#
 	#	retrieves user by email
 	#
 	public static function getByEmail(string $email, array $cols = ['*'])
@@ -141,7 +149,7 @@ class Users extends Model
 	#
 	public function requirePhoneConfirmation(string $data)
 	{
-		
+
 	}
 
 	#
@@ -169,9 +177,9 @@ class Users extends Model
 	#
 	#	generate phone verification token
 	#
-	public function generatePhoneConfirmationToken()
+	public static function generatePhoneConfirmationToken()
 	{
-		for($i=0; $i<8; $i++) 
+		for($i=0; $i<8; $i++)
 			$tmp .= rand(0, 9);
 
 		return $tmp;
