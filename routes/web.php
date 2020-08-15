@@ -2,8 +2,9 @@
 
 // main site
 Route::domain(config('app.domain'))->group(function(){
-	// homepage
-	Route::get('/', function () { return view('index'); });
+	// homepage && other stuff
+	Route::get('/', 'PubSite\IndexPage@index');
+	Route::name('about')->get('about', function () { return view('about'); });
 
 	// search
 	Route::get('search', function(){ return view('search'); });
@@ -11,9 +12,13 @@ Route::domain(config('app.domain'))->group(function(){
 	Route::name('site-search-address')->get('search/{address}', 'PubSite\SearchAddress@searchGET');
 
 	// report
-	Route::get('report', function(){ return view('report'); });
+	Route::name('report')->get('report', function(){ return view('report'); });
 	Route::post('report', 'PubSite\ReportAddress@report');
 	Route::name('latest-reports')->get('latest-reports', 'PubSite\LatestReports@getReports');
+
+	// acc
+	Route::name('register')->get('register', function(){ return view('acc.register'); });
+	Route::post('register', 'PubSite\Acc\Register@register');
 });
 
 // static area

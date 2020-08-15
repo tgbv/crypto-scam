@@ -106,7 +106,7 @@
 		<h3 class="hide-on-small-only" main-header>Query data:</h3>
 		<h4 class="hide-on-med-and-up" main-header>Query data:</h4>
 
-		<table main class="striped hide-on-small-only">
+		<table main class=" hide-on-small-only">
 			<tbody>
 				<tr>
 					<td>Address</td>

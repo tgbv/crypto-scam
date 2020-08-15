@@ -124,6 +124,8 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'db_sha_salt' => env('DB_SHA_SALT'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -150,8 +152,8 @@ return [
         Illuminate\Encryption\EncryptionServiceProvider::class,
         Illuminate\Filesystem\FilesystemServiceProvider::class,
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
-        //Illuminate\Hashing\HashServiceProvider::class,
-        //Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Hashing\HashServiceProvider::class,
+        Illuminate\Mail\MailServiceProvider::class,
         //Illuminate\Notifications\NotificationServiceProvider::class,
         //Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
@@ -166,6 +168,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Scyllaly\HCaptcha\HCaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,6 +233,7 @@ return [
 
         'CryptoValidation' => Merkeleon\PhpCryptocurrencyAddressValidation\Validation::class,
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
+        'HCaptcha' => Scyllaly\HCaptcha\Facades\HCaptcha::class,
     ],
 
 ];

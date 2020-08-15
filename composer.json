@@ -17,7 +17,10 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "merkeleon/php-cryptocurrency-address-validation": "^1.2",
-        "rennokki/laravel-eloquent-query-cache": "^2.1"
+        "propaganistas/laravel-phone": "^4.2",
+        "rennokki/laravel-eloquent-query-cache": "^2.1",
+        "scyllaly/hcaptcha": "^4.2",
+        "telnyx/telnyx-php": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",

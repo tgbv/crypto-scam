@@ -100,8 +100,8 @@
 				<div class="col s6">
 					<h5 class="white-text">Useful links</h5>
 					<ul>
-						<li><a class="grey-text text-lighten-3" href="{{ route('latest-reports') }}">Latest reports</a></li>
-						<li><a class="grey-text text-lighten-3" href="/report">Report address</a></li>
+						<li><a class="grey-text text-lighten-3" href="{{ route('about') }}">About</a></li>
+						<li><a class="grey-text text-lighten-3" href="{{ route('report') }}">Report address</a></li>
 						<li><a class="grey-text text-lighten-3" rel="nofollow" target="_blank" href="https://github.com/tgbv/crypto-scam/blob/beta/README.md#privacy-statement-and-terms-of-service">Privacy & ToS</a></li>
 					</ul>
 				</div>

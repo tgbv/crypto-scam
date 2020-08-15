@@ -118,6 +118,7 @@ return [
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
     'recaptcha' => 'Please complete the recaptcha.',
+    'phone' => 'The :attribute field contains an invalid number.',
 
     /*
     |--------------------------------------------------------------------------
@@ -133,6 +134,11 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
+        ],
+
+        'h-captcha-response' => [
+            'required' => 'Please complete the hCaptcha.',
+            'captcha' => 'Invalid hCaptcha. Please try again.',
         ],
     ],
 
