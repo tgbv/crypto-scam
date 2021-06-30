@@ -1,3 +1,7 @@
+_**Project is now discontinued.**_
+
+-----------------
+
 ## Crypto Scam White Paper.
 
 An open source system database containing fraudulent cryptocurrency addresses. 
